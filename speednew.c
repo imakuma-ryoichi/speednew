@@ -15,10 +15,15 @@ enum Player {//pascalcase
     player2 //1
 }; 
 
+void setup();
+
 int main() {
-    trump player[2];
-    player player[2];
-    game player[2];
+    Game g;
+    Player p;
     srand((unsigned)time(NULL));
+    setup();
+}
+
+void setup() {
     trump_setup();
 }

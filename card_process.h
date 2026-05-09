@@ -1,13 +1,27 @@
 #ifndef _CARD_PROCESS_H
 #define _CARD_PROCESS_H
 
-typedef struct trump {
-    int trump[26]
-} trump;
+typedef struct Deck {
+    int Trump[26];//最初にだれが持つかで決めるのがよいらしい（今回は赤黒陣営なので0~26）
+} Deck;
 
-trump init();
-void trump_shuffle(int);
+typedef struct Field {
+    int trump[2];
+    
+} Field;
 
-trump trump_setup();
+
+void trump_setup(Game *g);
+Deck init_Deck();
+void trump_shuffle(Game *g, int, int);
+
+void from_deck_hand(Game *g, Player *p, int);
+
+void trump_judgment(Game *g);
+
+int trump_num(int);
+
+int trump_mark(int);
+
 
 #endif 
