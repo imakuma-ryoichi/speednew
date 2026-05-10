@@ -1,27 +1,35 @@
 #ifndef _CARD_PROCESS_H
 #define _CARD_PROCESS_H
 
+
+
+typedef struct Game Game; //先に定義だけ見せないといけない
+typedef struct Player Player;
+typedef struct Deck Deck;
+typedef struct Field Field;
+
 typedef struct Deck {
-    int Trump[26];//最初にだれが持つかで決めるのがよいらしい（今回は赤黒陣営なので0~26）
+    int trump[26];//最初にだれが持つかで決めるのがよいらしい（今回は赤黒陣営でわけるので0~26）
 } Deck;
 
 typedef struct Field {
-    int trump[2];
-    
-} Field;
-
+    int hand[8];
+    int table[2];
+} Field;         
 
 void trump_setup(Game *g);
 Deck init_Deck();
-void trump_shuffle(Game *g, int, int);
-
-void from_deck_hand(Game *g, Player *p, int);
+void trump_def(Game *g);
+void trump_shuffle(Game *g);
+void field_setup(Game *g);
+void first_from_deck_hand(Game *g);
+void from_deck_hand(Game *g, int, int);
 
 void trump_judgment(Game *g);
 
-int trump_num(int);
-
-int trump_mark(int);
+int from_num_player(int);
+int trump_num_judge(int);
+int trump_mark_judge(int);
 
 
 #endif 
