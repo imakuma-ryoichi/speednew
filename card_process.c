@@ -6,9 +6,16 @@
 #include "game.h"
 #include "player.h"
 
+//いまシャッフルして出せたとこまで
+
 Deck init_Deck() {
     Deck d = {0};   
     return d;
+}
+
+void card_setup(Game *g) {
+    trump_setup(g);
+    field_setup(g);
 }
 
 void trump_setup(Game *g) {//なんか初期設定もできるだけ関数が望ましんですね
@@ -65,9 +72,9 @@ void from_deck_hand(Game *g, int field_num, int hand_num) {//引数調整(構造
     g->field.table[field_num] =  g->field.hand[hand_num];
 
     if (hand_num < 4) {
-        g->player[PLAYER1].trump_count += 1;
+        g->player[PLAYER1].trump_sum_count += 1;
     } else {
-        g->player[PLAYER2].trump_count += 1;
+        g->player[PLAYER2].trump_sum_count += 1;
     }
 }
 

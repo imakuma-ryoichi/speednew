@@ -4,8 +4,8 @@
 #include <unistd.h>//即時入力＆待機時間用
 #include <termios.h>//即時入力用
 #include <time.h>//0で判定とペナルティ実装
-#include "card_process.h"
 #include "game.h"
+#include "card_process.h"
 #include "player.h"
 
 //　構造体メモ　initで定義して代入　card=init_trump()    trump card  card = 0  return card;
@@ -24,5 +24,5 @@ int main() {
 }
 
 void setup(Game *g) {
-    trump_setup(g);
+    card_setup(g);
 }
